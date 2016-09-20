@@ -1,0 +1,44 @@
+
+
+*******************************************************************************
+Tue Sep 20 15:55:11 2016
+
+
+FIT:    data read from 'phase_shifts_RB.txt' using 1:(-tan($5)/($1**3))
+        format = x:z
+        #datapoints = 46
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f1(x)
+	f1(x)=a/x+b/x**2+c/x**3 +d/x**4 +e/x**5+f
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             c             d             e             f            
+   0 1.7054207711e+25   0.00e+00  2.48e+11    1.000000e+00   2.000000e+00   1.000000e+00   1.000000e+00   1.000000e+00   1.000000e+00
+  15 2.4808286351e+03  -1.65e-03  2.48e-04   -8.514103e+01   2.967465e-01  -2.918645e-03   1.199196e-05  -1.663506e-08   4.701609e+02
+
+After 15 iterations the fit converged.
+final sum of squares of residuals : 2480.83
+rel. change during last iteration : -1.65386e-08
+
+degrees of freedom    (FIT_NDF)                        : 40
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 7.87532
+variance of residuals (reduced chisquare) = WSSR/ndf   : 62.0207
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+a               = -85.141          +/- 0.7556       (0.8875%)
+b               = 0.296747         +/- 0.02565      (8.644%)
+c               = -0.00291864      +/- 0.0003235    (11.08%)
+d               = 1.1992e-05       +/- 1.595e-06    (13.3%)
+e               = -1.66351e-08     +/- 2.508e-09    (15.08%)
+f               = 470.161          +/- 6.084        (1.294%)
+
+correlation matrix of the fit parameters:
+                a      b      c      d      e      f      
+a               1.000 
+b              -0.977  1.000 
+c               0.939 -0.990  1.000 
+d              -0.908  0.973 -0.996  1.000 
+e               0.888 -0.961  0.990 -0.999  1.000 
+f              -0.960  0.898 -0.843  0.805 -0.782  1.000 

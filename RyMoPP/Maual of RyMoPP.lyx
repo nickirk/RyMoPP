@@ -1,0 +1,938 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{braket}
+\usepackage{graphicx}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Manual of RyMoP 
+\end_layout
+
+\begin_layout Author
+Ke Liao
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Any questions or queries should be addressed to 
+\begin_inset CommandInset href
+LatexCommand href
+name "ke.liao.whu@gmail.com"
+target "ke.liao.whu@gmail.com"
+type "mailto:"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+RyMoP refers to Rydberg Molecule Potential 
+\lang british
+Program
+\lang english
+me which is written in C++ and developed by Ke Liao for the 5.
+ Physikalisches Institut, Universit
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"a
+\end_layout
+
+\end_inset
+
+t Stuttgart.
+ The programme can calculate the potential in a Rydberg Molecule using the
+ partial wave scattering theory, to be precise only S- and P-wave scattering
+ are included.
+ The programme, though at a primitive stage (no graphic interface or post-proces
+s scripts), includes all the core functions needed to calculate the S- and
+ P-wave scattering Rydberg Molecule potential.
+ Currently, the programme has only been tested on Linux (Ubuntu) and Mac
+ OSX with gcc (g++) compiler 4.8 and it works flawlessly.
+ Older version of gcc like 4.2 may not support some features and newer versions
+ like gcc 5 abandons some old features so that the programme cannot be compiled.
+ So choose gcc 4.8 to make life easier.
+\end_layout
+
+\begin_layout Standard
+The programme comes with a compressed file, 
+\emph on
+RyMoPP.tar.gz
+\emph default
+, which when uncompressed will give you 4 folders: 
+\emph on
+Code, Wave, Scripts 
+\emph default
+and 
+\emph on
+EigenLib
+\emph default
+.
+ All of the essential codes are stored in 
+\emph on
+Code
+\emph default
+, 
+\emph on
+EigenLib 
+\emph default
+is the 
+\begin_inset CommandInset href
+LatexCommand href
+name "Eigen Library"
+target "http://eigen.tuxfamily.org/index.php?title=Main_Page"
+
+\end_inset
+
+, 
+\emph on
+Scripts 
+\emph default
+contains some pre- and post-processing scripts and 
+\emph on
+Wave 
+\emph default
+contains a selected range of wave functions that you can use.
+ If you want to use more wave functions, you have to copy the corresponding
+ files into this folder.
+ One important thing to note is that the names of the newly copied files
+ have to have the same format as the old ones which are already there.
+ Originally I obtain those wave function files by converting the *.mat files
+ to *.txt files.
+ I wrote a script called 
+\emph on
+convert.py
+\emph default
+ to do this job.
+ I will address more about this script later in Scripts 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Scripts"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For record, I list the essential files here and explain briefly what they
+ do.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Core Files
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Kore.cpp
+\emph default
+, which is the core file in this programme and contains all the essential
+ functions;
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+specfunc.h
+\emph default
+, which contains a collection of special functions, including the Spherical
+ Harmonics and another Spherical Harmonics without 
+\begin_inset Formula $\sin\theta$
+\end_inset
+
+
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+I will introduce this function in detail.
+ It is crucial to the P-wave scattering calculation.
+\end_layout
+
+\end_inset
+
+.
+ Though it is not included directly in Kore.cpp, it is contained in 'integral.h';
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+memalloc.h
+\emph default
+, which handles memory allocation.
+ It is used in 'integral.h';
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+integral.h
+\emph default
+, which provides integration of 3D angular integration.
+ In this file, it includes 'memalloc.h' and 'specfunc.h'.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+line.h
+\emph default
+, which provides the functions used in 'Kore.cpp' to read data files correctly.
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+compile.sh
+\emph default
+, which is used to compile the programme.
+ In this file, it compiles the Kore.cpp with the option linked to the 'EigenLib'
+ library, which handles the matrices manipulations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Scripts
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Scripts"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Above 5 files are the essential ones.
+ During the process, I also wrote two python scripts, which are 
+\end_layout
+
+\begin_layout Enumerate
+convert.py, which can convert the wave function files from *.mat format to
+ *.txt format, and the latter is the format that this programme can read.
+ Users have to pay attention to the format of the files' name and the files
+ themselves.
+ The converted wave function files have the eigenenergy of this state at
+ the end of the file.
+\end_layout
+
+\begin_layout Enumerate
+get_pot.py, which is the post-processing script to get data from the output
+ files from the main programme.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The implementation of the code involves some theoretical derivations, so
+ the next section is dedicated to the basics of the theory.
+ After that, I will dive into the details of the codes.
+ In the end, some exmples will be shown.
+\end_layout
+
+\begin_layout Section
+Theoretical Basis
+\end_layout
+
+\begin_layout Standard
+In this section, we go through the basics of the theory.
+ The system under consideration is a Rydberg molecule, which consists of
+ a Rydberg atom and a ground state atom sitting in the range of the former.
+ Due to the scattering between the Rydberg electron and the ground state
+ atom, an effective attraction between these two atoms can form.
+ Our goal is to calculate the effective potential between the Rydberg atom
+ and the ground state atom when the distances between them changes.
+ The distance here refers to the distance between the ground state atom
+ and the nucleus of the Rydberg atom.
+ The general idea is to expand the scattered electronic wave function with
+ the unperturbed eigenfunctions from the isolated Rydberg atom, based on
+ the linear variational principle, we can get the perturbed electronic wave
+ function and energy, in turn, the energy of the electron acts as an effective
+ potential for the ground state atom in a wave similar to the Born-Oppenheimer
+ approximation in solids.
+ 
+\end_layout
+
+\begin_layout Subsection
+Atomic Wave Functions
+\end_layout
+
+\begin_layout Standard
+Firt of all, we need the unperturbed wave functions of a isolated atom to
+ be the basis functions.
+ Consider the Schr
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+"
+\end_layout
+
+\end_inset
+
+odinger equation for a Rydberg atom: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\left[\frac{{\bf p}^{2}}{2m_{e}}+V_{mod}(r)\right]\Ket{\Psi}=E\Ket{\Psi},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $V_{mod}(r)$
+\end_inset
+
+ is a efffective potential and we split the wave function into radial and
+ angular part
+\begin_inset Formula 
+\begin{equation}
+\Psi(r,\theta,\phi)=R({\bf r})\tilde{Y}(\theta,\phi).
+\end{equation}
+
+\end_inset
+
+In the internal wiki of Pi5, there is a detailed explanation about how to
+ get the raidal part of the wave function, so we will skip this part here.
+ But we have to point out that the final calculated result in the wave function
+ file is only the radial part and it is not directly stored as 
+\begin_inset Formula $r$
+\end_inset
+
+ and 
+\begin_inset Formula $R(r)$
+\end_inset
+
+, instead a transform of the variables is used:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+x&=
+\backslash
+sqrt{r},
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+X(x)&=x^{3/2}R(r).
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{equ:trans}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+As for the angular part, since we take the spin orbital interaction into
+ account, spinors, which are the conbinations of two spherical harmonics,
+ should be used here.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tilde{Y}_{(j-
+\backslash
+frac{1}{2},
+\backslash
+frac{1}{2})jm}&=
+\backslash
+left(
+\backslash
+sqrt{
+\backslash
+frac{j+m}{2j}}Y_{j-
+\backslash
+frac{1}{2},m-
+\backslash
+frac 12}, 
+\backslash
+sqrt{
+\backslash
+frac{j-m}{2j}}Y_{j-
+\backslash
+frac 12,m+
+\backslash
+frac 12}
+\backslash
+right),
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tilde{Y}_{(j+
+\backslash
+frac{1}{2},
+\backslash
+frac{1}{2})jm}&=
+\backslash
+left(-
+\backslash
+sqrt{
+\backslash
+frac{j-m+1}{2j+2}}Y_{j+
+\backslash
+frac{1}{2},m-
+\backslash
+frac 12}, 
+\backslash
+sqrt{
+\backslash
+frac{j+m+1}{2j+2}}Y_{j+
+\backslash
+frac 12,m+
+\backslash
+frac 12}
+\backslash
+right).
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{equ:spinors}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{aligned}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Pseudopotential in Molecular Hamiltonian
+\end_layout
+
+\begin_layout Standard
+For a highly excited Rydberg atom interacting with a ground state atom,
+ the Hamiltonian is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H=\frac{{\bf P}^{2}}{M}+H_{el}+V_{n,e}({\bf r,R})
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $H_{el}$
+\end_inset
+
+ is the atomic Hamiltonian we mentioned in last subsection, 
+\begin_inset Formula $M$
+\end_inset
+
+ is the mass of the atom, 
+\begin_inset Formula ${\bf P}$
+\end_inset
+
+ and 
+\begin_inset Formula ${\bf R}$
+\end_inset
+
+ are the relative momentum and position of the ground state atom with respect
+ to the ionic core of the Rydberg atom respectively and 
+\begin_inset Formula ${\bf r}$
+\end_inset
+
+ is the relative position of the Rydberg electron to the ionic core.
+ 
+\begin_inset Formula $V_{n,e}({\bf r,R})$
+\end_inset
+
+ is the famous Fermi-Pseudopotential:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+V_{n,e}({\bf r,R})=2\pi A_{s}[k(R)]\delta({\bf r}-{\bf R})+6\pi A_{p}^{3}[k(R)\overleftarrow{]\nabla}\delta({\bf r}-{\bf R})\overrightarrow{\nabla}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $A_{s}(k)=-\tan[\delta_{0}(k)]/k$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{p}^{3}(k)=-\tan[\delta_{1}(k)]/k^{3}$
+\end_inset
+
+ denote the energy-dependent griplet s- and p-wave scattering lengths.
+ It is worth pointing out that 
+\begin_inset Formula $\delta_{l=0,1}(k)$
+\end_inset
+
+ are the energy dependent phase shifts and 
+\begin_inset Formula $\frac{k(R)^{2}}{2}=E_{kin}=-\frac{1}{2}n^{*2}+\frac{1}{R}$
+\end_inset
+
+ where 
+\begin_inset Formula $n^{*}$
+\end_inset
+
+ is the effective principal quantum number.
+ Unfortunately, we do not have analytical expressions for 
+\begin_inset Formula $\delta_{l=0,1}(k)$
+\end_inset
+
+ , so we have to do a fitting based on the data we have got.
+ See figure ( ) for an example.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename PSinglet.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PSinglet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename PTriplet.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+PTriplet
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\begin_layout Standard
+d
+\end_layout
+
+\end_body
+\end_document
