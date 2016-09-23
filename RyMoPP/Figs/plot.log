@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.10)  20 SEP 2016 15:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.10)  20 SEP 2016 16:18
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -111,9 +111,9 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \verbatim@out=\write3
-runsystem(touch w18-test-2016920955.tex)...executed.
+runsystem(touch w18-test-2016920978.tex)...executed.
 
-runsystem(rm -f w18-test-2016920955.tex)...executed.
+runsystem(rm -f w18-test-2016920978.tex)...executed.
 
 Package gnuplottex Info: Automatically converting gnuplot files. on input line 
 109.
@@ -205,38 +205,39 @@ LaTeX Font Warning: Font shape `OT1/Helvetica/m/n' undefined
 \gptboxheight=\skip43
 \gptboxwidth=\skip44
 \gptboxtext=\box28
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 112.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 112.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 112.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
 Package epstopdf Info: Source file: <plot-gnuplottex-fig1.eps>
-(epstopdf)                    date: 2016-09-20 15:55:11
-(epstopdf)                    size: 19356 bytes
+(epstopdf)                    date: 2016-09-20 16:18:46
+(epstopdf)                    size: 19599 bytes
 (epstopdf)             Output file: <plot-gnuplottex-fig1-eps-converted-to.pdf>
 
+(epstopdf)                    date: 2016-09-20 16:18:34
+(epstopdf)                    size: 4341 bytes
 (epstopdf)             Command: <epstopdf --outfile=plot-gnuplottex-fig1-eps-co
 nverted-to.pdf plot-gnuplottex-fig1.eps>
-(epstopdf)             \includegraphics on input line 113.
+(epstopdf)             \includegraphics on input line 119.
 runsystem(epstopdf --outfile=plot-gnuplottex-fig1-eps-converted-to.pdf plot-gnu
 plottex-fig1.eps)...executed.
 
 Package epstopdf Info: Result file: <plot-gnuplottex-fig1-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2016-09-20 15:55:11
-(epstopdf)                    size: 4426 bytes.
-
+(epstopdf)                    date: 2016-09-20 16:18:46
+(epstopdf)                    size: 4342 bytes.
 <plot-gnuplottex-fig1-eps-converted-to.pdf, id=1, 361.35pt x 252.945pt>
 File: plot-gnuplottex-fig1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use plot-gnuplottex-fig1-eps-converted-to.pdf>
 Package pdftex.def Info: plot-gnuplottex-fig1-eps-converted-to.pdf used on inpu
-t line 113.
+t line 119.
 (pdftex.def)             Requested size: 361.34912pt x 252.94438pt.
-) [1
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 120.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 120.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)) [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./plot-
 gnuplottex-fig1-eps-converted-to.pdf>] (./plot.aux)
@@ -245,21 +246,20 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 2137 strings out of 493089
- 32879 string characters out of 6134841
- 92031 words of memory out of 5000000
- 5583 multiletter control sequences out of 15000+600000
- 3958 words of font info for 17 fonts, out of 8000000 for 9000
+ 2143 strings out of 493089
+ 32983 string characters out of 6134841
+ 93031 words of memory out of 5000000
+ 5588 multiletter control sequences out of 15000+600000
+ 5169 words of font info for 21 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,8n,56p,237b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on plot.pdf (1 page, 40599 bytes).
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on plot.pdf (1 page, 36286 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
- 18 compressed objects within 1 object stream
+ 23 PDF objects out of 1000 (max. 8388607)
+ 15 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
