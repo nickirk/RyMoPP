@@ -9,15 +9,16 @@ fit f1(x) 'phase_shifts_RB.txt' using 1:(-tan($5)/($1**3)) via a,b ,c ,d ,e,f
 set terminal epslatex color font 'Helvetica,10'
 #set output "cali.eps"
 set title "Calibration Curve" font ",25"     # note newline!
-set lmargin at screen 0.08
+set lmargin at screen 0.15
 set rmargin at screen 0.95
-set bmargin at screen 0.10
+set bmargin at screen 0.2
 set tmargin at screen 0.90
 set pointsize 1.5                              # larger point!
-set xlabel  '$K[1/a_0]$' font ",20" offset 0,0.5          # Greek symbols!
-set ylabel  'Scattering Length $[a_0]$'  font ",20" offset 0.5,0         # italics!
-set tics font ", 15"
+set xlabel  '\Large $k[1/a_0]$' font ",20" offset 0,-0.2          # Greek symbols!
+set ylabel  '\Large Scattering Length $[a_0]$'  font ",20" offset 1.5,0         # italics!
 set key right spacing 2.0 font ",18"
+set format x '\large %.2f'
+set format y '\large %.f'
 plot f1(x) title 'fitting of P-Singlet',\
      'phase_shifts_RB.txt' using 1:((-tan($5)/($1**3))) title 'P-Singlet'
     # 'phase_shifts_RB.txt' using 1:(-tan($5)/($1**3)) title 'P-Singlet'
