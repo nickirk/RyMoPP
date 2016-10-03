@@ -160,12 +160,12 @@ harmonics, should be used here.
 
 \begin{equation}
 \begin{aligned}
-\tilde{Y}_{(j-\frac{1}{2},\frac{1}{2})jm}&=\left(\sqrt{\frac{j+m}{2j}}Y_{j-\frac{1}{2},m-\frac 12}, \sqrt{\frac{j-m}{2j}}Y_{j-\frac 12,m+\frac 12}\right),\\
-\tilde{Y}_{(j+\frac{1}{2},\frac{1}{2})jm}&=\left(-\sqrt{\frac{j-m+1}{2j+2}}Y_{j+\frac{1}{2},m-\frac 12}, \sqrt{\frac{j+m+1}{2j+2}}Y_{j+\frac 12,m+\frac 12}\right).
+\tilde{Y}_{(j-\frac{1}{2},\frac{1}{2})j m_{j}}&=\left(\sqrt{\frac{j+m_{j}}{2j}}Y_{j-\frac{1}{2},m_{j}-\frac 12}, \sqrt{\frac{j-m_{j}}{2j}}Y_{j-\frac 12,m_{j}+\frac 12}\right),\\
+\tilde{Y}_{(j+\frac{1}{2},\frac{1}{2})jm_{j}}&=\left(-\sqrt{\frac{j-m_{j}+1}{2j+2}}Y_{j+\frac{1}{2},m_{j}-\frac 12}, \sqrt{\frac{j+m_{j}+1}{2j+2}}Y_{j+\frac 12,m_{j}+\frac 12}\right),
 \label{equ:spinors}
 \end{aligned}
 \end{equation}
-
+where $ {\bf j} = {\bf l} + {\bf s}$, and $m_{j} = -|l-s|,-|l-s|+1,\dots,|l+s|-1,|l+s|$. Note that in practice we can use the relation between $m_j$ and $m$: $m=m_j-\frac {1}{2}$ and $m+1 = m_j + \frac{1}{2}$. For detailed information please refer to this book.\cite{Biedenharn1981}
 \subsection{Pseudopotential in Molecular Hamiltonian}
 
 For a highly excited Rydberg atom interacting with a ground state
@@ -286,9 +286,67 @@ When we apply the P-wave scattering potential operator to the wave function (\re
 \end{equation}
 For clarity let us denote the three terms in the final result into separate names,
 \begin{align}
-PS1&=\left[\tilde{Y}^*(\theta,\beta)\tilde{Y}'(\theta,\beta)\right]_{\theta=0,\beta=0}\left[\frac{\partial R^*(r)}{\partial r}\frac{\partial R'(r)}{\partial r}\right]_{r=Z},\\
-PS2&=\left[\frac{\partial \tilde{Y}^*(\theta,\varphi)}{\partial \theta}\frac{\partial \tilde{Y}'(\theta,\varphi)}{\partial \theta}\right]_{\theta=0,\varphi=0}\left[\frac{R^*(r)}{r}\frac{R'(r)}{r}\right]_{r=Z},\\
-PS3&=\left[\frac{1}{\sin^2(\theta)}\frac{\partial \tilde{Y}^*(\theta,\varphi)}{\partial \varphi}\frac{\partial \tilde{Y}'(\theta,\varphi)}{\partial \varphi}\right]_{\theta=0,\varphi=0}\left[\frac{R(r)R'(r)}{r^2}\right]_{r=Z}.
+PWS1&=\left[\tilde{Y}^*(\theta,\beta)\tilde{Y}'(\theta,\beta)\right]_{\theta=0,\beta=0}\left[\frac{\partial R^*(r)}{\partial r}\frac{\partial R'(r)}{\partial r}\right]_{r=Z},\\
+PWS2&=\left[\frac{\partial \tilde{Y}^*(\theta,\varphi)}{\partial \theta}\frac{\partial \tilde{Y}'(\theta,\varphi)}{\partial \theta}\right]_{\theta=0,\varphi=0}\left[\frac{R^*(r)}{r}\frac{R'(r)}{r}\right]_{r=Z},\\
+PWS3&=\left[\frac{1}{\sin^2(\theta)}\frac{\partial \tilde{Y}^*(\theta,\varphi)}{\partial \varphi}\frac{\partial \tilde{Y}'(\theta,\varphi)}{\partial \varphi}\right]_{\theta=0,\varphi=0}\left[\frac{R(r)R'(r)}{r^2}\right]_{r=Z}.
 \end{align}
+The $PWS3$ is the most difficult one to calculate because of the singularity at $\theta=0$ brought by $\frac{1}{\sin^2 \theta}$. For $PWS1$, we can reuse the calculations from S-wave scattering for the angular part and as for the radial part we use differences to approximate the derivatives; for $PWS2$, the following formula is helpful:
+\begin{equation}
+\frac{\partial Y_l^m(\theta,\varphi)}{\partial \theta}= m\cot \theta Y^m_l(\theta,\varphi) + \frac{\sqrt{\Gamma(l-m+1)\Gamma(l+m+2)}}{\sqrt{\Gamma(l+m+1)\Gamma(l-m)}}e^{-i\varphi}Y^{m+1}_l(\theta,\varphi).
+\label{equ:der_theta}
+\end{equation}
+A scrutinization on formula (\ref{equ:der_theta}) will tell us that $\left.\frac{\partial Y_l^m(\theta,\varphi)}{\partial \theta}\right|_{\theta=0,\varphi=0}=0$, because
+\begin{itemize}
+\item when $m=0$, the first term is zero and so is the second term since $Y_l^1(0,0)=0$,
+\item when $m\neq0$, $Y_l^{m\neq0}(0,0)=0$.
+\end{itemize}
+However, for possible future adaptions of the code, we keep the general calculation of the derivative with respect to $\theta$ of the sperical harmonics instead of setting directly $PWS2=0$. 
+
+Now let's focus on $PWS3$. To start with, ignore the radial part first and use the formula
+\begin{equation}
+\frac{\partial Y^m_l}{\partial \varphi}=imY^m_l,
+\end{equation}
+where $i$ is the imaginary unit. In the spinor spherical harmonics, we will adopt $l,m$ notation instead of $j,m_j$ notation here just for convenience. 
+\begin{equation}
+\begin{aligned}
+&\left[\frac{1}{\sin^2\theta}\left(\frac{\partial \tilde{Y}_j^{m_j}}{\partial \varphi}\right)^* \left(\frac{\partial \tilde{Y}_{j'}^{m_j'}}{\partial \varphi}\right)\right]_{\theta=0,\varphi=0}\\
+&=\left[\frac{1}{\sin^2\theta} \begin{pmatrix} \frac{\alpha\partial Y_l^{m}}{\partial \varphi},&\frac{\beta\partial Y_l^{m+1}}{\partial \varphi}\end{pmatrix}^*\begin{pmatrix} \frac{\alpha'\partial Y_{l'}^{m'}}{\partial \varphi} &\\
+\frac{\beta' \partial Y_{l'}^{m'+1}}{\partial \varphi} &
+\end{pmatrix}\right]_{\theta=0,\varphi=0}\\
+&=\left[\frac{1}{\sin^2\theta} \begin{pmatrix} \alpha i m Y_l^{m},&\beta i(m+1)Y_l^{m+1}\end{pmatrix}^*\begin{pmatrix} \alpha'im' Y_{l'}^{m'} &\\
+\beta' i(m'+1) Y_{l'}^{m'+1} &
+\end{pmatrix}\right]_{\theta=0,\varphi=0}\\
+&=\frac{1}{\sin^2\theta}\left[\alpha\alpha'mm'Y_l^{m*} Y_{l'}^{m'}+\beta\beta'(m+1)(m'+1)Y_{l}^{m+1*}Y_{l'}^{m'+1}\right]_{\theta=0,\varphi=0}.
+\end{aligned}
+\label{equ:pws3}
+\end{equation}
+When we get this result, it is time to look into the expression of spherical harmonics
+\begin{equation}
+Y_{l }^{m}(\theta ,\varphi )=(-1)^{m}{\sqrt {{(2l +1) \over 4\pi }{(l -m)! \over (l +m)!}}}\,P_{l }^{m}(\cos {\theta })\,e^{im\varphi },
+\end{equation} 
+where the Associated Legendre polynomials are
+\begin{equation}
+P_{l }^{m}(\cos \theta )=(-1)^{m}(\sin \theta )^{m}\ {\frac {d^{m}}{d(\cos \theta )^{m}}}\left(P_{l }(\cos \theta )\right)\,
+\end{equation}
+where $P_l$ is the Legendre polynomials. We can stop here because we only need to know the order of $\sin \theta$ in the spherical harmonics and we know it from the above expression that it is $m$. To cancel out the $1/\sin ^2 \theta$ in equation (\ref{equ:pws3}) and obtain a finite value, we need
+\begin{equation} 
+|m|+|m'|=2 \text{ or } |m+1|+|m'+1|=2.
+\end{equation}
+ In practice, we set $PWS3=0$ when the above condition is not met, and when it is met we need a special way to calculate it. We define a new kind of spherical harmonics which is called \emph{Spherical Harmonics without $\sin \theta$($YNoSin_l^m$)}, for example
+\begin{equation}
+\begin{aligned}
+Y_{3}^{1}(\theta ,\varphi )&={-1 \over 8}{\sqrt {21 \over \pi }}\cdot e^{i\varphi }\cdot \sin \theta \cdot (5\cos ^{2}\theta -1),\\
+YNoSin_{3}^{1}(\theta ,\varphi )&={-1 \over 8}{\sqrt {21 \over \pi }}\cdot e^{i\varphi }\cdot (5\cos ^{2}\theta -1).
+\end{aligned}
+\end{equation}
+So basically we manually cancel out the $\sin \theta$'s by using $YNoSin_l^m$'s instead of $Y_l^m$'s when the condition is met. The final expression for $PWS3$ is
+\begin{equation}
+PWS3=
+\begin{cases}
+   \left[\alpha\alpha'mm'YNoSin_l^{m*} YNoSin_{l'}^{m'}\right.\\
+   +\left.\beta\beta'(m+1)(m'+1)YNoSin_{l}^{m+1*}YNoSin_{l'}^{m'+1}\right]_{\theta=0,\varphi=0} ,& \text{if } |m|+|m'|=2 \text{ or } |m+1|+|m'+1|=2\\
+    0,              & \text{otherwise}
+\end{cases}
+\end{equation}
 \bibliography{bib}
 \end{document}
