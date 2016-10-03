@@ -37,7 +37,7 @@
 
 \section{Introduction}
 
-RyMoP refers to Rydberg Molecule Potential \foreignlanguage{british}{Program}me
+RyMoPP refers to Rydberg Molecule Potential \foreignlanguage{british}{Program}me
 which is written in C++ and developed by Ke Liao for the 5. Physikalisches
 Institut, Universit\"at Stuttgart. The programme can calculate the
 potential in a Rydberg Molecule using the partial wave scattering
@@ -98,7 +98,7 @@ two python scripts, which are
 format to {*}.txt format, and the latter is the format that this programme
 can read. Users have to pay attention to the format of the files'
 name and the files themselves. The converted wave function files have
-the eigenenergy of this state at the end of the file.
+the eigen energy of this state at the end of the file.
 \item get\_pot.py, which is the post-processing script to get data from
 the output files from the main programme.
 \end{enumerate}
@@ -106,7 +106,7 @@ the output files from the main programme.
 The implementation of the code involves some theoretical derivations,
 so the next section is dedicated to the basics of the theory. After
 that, I will dive into the details of the codes. In the end, some
-exmples will be shown.
+examples will be shown.
 
 \section{Theoretical Basis}
 
@@ -128,21 +128,21 @@ in solids.
 
 \subsection{Atomic Wave Functions}
 
-Firt of all, we need the unperturbed wave functions of a isolated
+First of all, we need the unperturbed wave functions of a isolated
 atom to be the basis functions. Consider the Schr\"odinger equation
 for a Rydberg atom: 
 
 \begin{equation}
 \left[\frac{{\bf p}^{2}}{2m_{e}}+V_{mod}(r)\right]\Ket{\Psi}=E\Ket{\Psi},
 \end{equation}
-where $V_{mod}(r)$ is a efffective potential and we split the wave
+where $V_{mod}(r)$ is a effective potential and we split the wave
 function into radial and angular part
 \begin{equation}
 \Psi(r,\theta,\phi)=R({\bf r})\tilde{Y}(\theta,\phi).
 \label{equ:wavefun}
 \end{equation}
 In the internal wiki of Pi5, there is a detailed explanation about
-how to get the raidal part of the wave function, so we will skip this
+how to get the radial part of the wave function, so we will skip this
 part here. But we have to point out that the final calculated result
 in the wave function file is only the radial part and it is not directly
 stored as $r$ and $R(r)$, instead a transform of the variables is
@@ -155,7 +155,7 @@ X(x)&=x^{3/2}R(r).
 \label{equ:trans}
 \end{aligned}
 \end{equation}As for the angular part, since we take the spin orbital interaction
-into account, spinors, which are the conbinations of two spherical
+into account, spinors, which are the combinations of two spherical
 harmonics, should be used here.
 
 \begin{equation}
@@ -185,7 +185,7 @@ is the famous Fermi-Pseudopotential:
 V_{n,e}({\bf r,R})=2\pi A_{s}[k(R)]\delta({\bf r}-{\bf R})+6\pi A_{p}^{3}[k(R)\overleftarrow{]\nabla}\delta({\bf r}-{\bf R})\overrightarrow{\nabla}
 \end{equation}
 where $A_{s}(k)=-\tan[\delta_{0}(k)]/k$ and $A_{p}^{3}(k)=-\tan[\delta_{1}(k)]/k^{3}$
-denote the energy-dependent griplet s- and p-wave scattering lengths.
+denote the energy-dependent triplet s- and p-wave scattering lengths.
 It is worth pointing out that $\delta_{l=0,1}(k)$ are the energy
 dependent phase shifts and $\frac{k(R)^{2}}{2}=E_{kin}=-\frac{1}{2}n^{*2}+\frac{1}{R}$
 where $n^{*}$ is the effective principal quantum number.
@@ -221,7 +221,7 @@ To include the singlet and triplet states in our calculations \cite{}, we use a 
 \end{equation}
  where $\hat I_T=\hat S_1\cdot \hat S_2+\frac 34$ is the triplet operator, when applied to triplet state, the eigenvalue is 1, otherwise is 0, vise versa for $\hat I_S$ which is the singlet operator.
 
-First, let's focus on the calculations involving the angular part of the wave function. In caculations we assume that the ground atom is always spin up which is represented by the second uparrow in following formulae, which is viable in experiments. So we shall have:
+First, let's focus on the calculations involving the angular part of the wave function. In calculations we assume that the ground atom is always spin up which is represented by the second uparrow in following formulae, which is viable in experiments. So we shall have:
 \begin{equation}
 	\begin{aligned}
 	\hat I_T\ket{\uparrow\uparrow}&=1\ket{\uparrow\uparrow},\\
@@ -258,7 +258,7 @@ Now let's finish the calculations involving the radial part of the wave function
 &= 2\pi X_i^*(\sqrt{Z})X_j(\sqrt{Z})Z^{-\frac{3}{2}}
 \end{aligned}
 \end{equation}
-In the end, we multiply the radial and angular contirubtions to get the final result. An important and interesting fact about spherical harmonics is that at $\theta=0, \varphi=0$, only those with $m=0$ have non-zero contributions. So when we construct the matrix, we can use this fact and substantially reduce the amount of computational resourses. This is how we are going to construct the off-diagonal entries for the S-wave scattering Hamiltonian matrix.
+In the end, we multiply the radial and angular contributions to get the final result. An important and interesting fact about spherical harmonics is that at $\theta=0, \varphi=0$, only those with $m=0$ have non-zero contributions. So when we construct the matrix, we can use this fact and substantially reduce the amount of computational resource. This is how we are going to construct the off-diagonal entries for the S-wave scattering Hamiltonian matrix.
 
 \subsection{P-wave Scattering}
 The calculations for P-wave scattering are a bit tricky, since they involve the calculations of ${\bf \nabla}$ in spherical coordinate system. In the P-wave scattering potential, 
@@ -300,7 +300,7 @@ A scrutinization on formula (\ref{equ:der_theta}) will tell us that $\left.\frac
 \item when $m=0$, the first term is zero and so is the second term since $Y_l^1(0,0)=0$,
 \item when $m\neq0$, $Y_l^{m\neq0}(0,0)=0$.
 \end{itemize}
-However, for possible future adaptions of the code, we keep the general calculation of the derivative with respect to $\theta$ of the sperical harmonics instead of setting directly $PWS2=0$. 
+However, for possible future adaption of the code, we keep the general calculation of the derivative with respect to $\theta$ of the spherical harmonics instead of setting directly $PWS2=0$. 
 
 Now let's focus on $PWS3$. To start with, ignore the radial part first and use the formula
 \begin{equation}
@@ -348,5 +348,9 @@ PWS3=
     0,              & \text{otherwise}
 \end{cases}
 \end{equation}
+\section{Results}
+A data file named data702.txt contains a latest run with 702 basis functions, including the P Wave scattering. To be continued... 
+Some other literatures\cite{Anderson2014,Biedenharn1981,Balewski2014,Bendkowsky2009,Kurz2013,Bendkowsky2010}
 \bibliography{bib}
+\bibliographystyle{unsrt}
 \end{document}

@@ -1,9 +1,9 @@
 FILE=Manual
 Manual.pdf: ${FILE}.tex ${FILE}.aux
-	pdflatex ${FILE}
-	bibtex ${FILE}
-	pdflatex ${FILE}
-	pdflatex ${FILE}
+	pdflatex ${FILE}.tex
+	bibtex ${FILE}.aux
+	pdflatex ${FILE}.tex
+	pdflatex ${FILE}.tex
 open: 
 	open ${FILE}.pdf
 clean:
