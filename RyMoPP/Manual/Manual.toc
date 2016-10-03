@@ -5,6 +5,6 @@
 \contentsline {section}{\numberline {2}Theoretical Basis}{3}{section.2}
 \contentsline {subsection}{\numberline {2.1}Atomic Wave Functions}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Pseudopotential in Molecular Hamiltonian}{3}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}S-wave scattering}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.3}S-wave Scattering}{4}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}P-wave Scattering}{5}{subsection.2.4}
 \contentsline {section}{\numberline {3}Results}{7}{section.3}
