@@ -39,20 +39,34 @@ old or newer ones) may not work properly.
 
 On linux or Mac, use the following command
  in terminal to check the version of gcc:
+
+
    `gcc -v`
 
 
 If it is something like 
+
+
   `gcc version 4.8.x`
+
+
 then you can proceed. If not try to reinstall
 the 4.8 version.
 
 
 Go to ./Code, run the following script
+
+
   `./compile.sh`
+
+
 make sure that this script has the x permision
 on your machine. If not, use
+
+
   `chmod +x compile.sh`
+
+
 to assign then running permission to it.
 
 
@@ -60,9 +74,19 @@ to assign then running permission to it.
 
 
 After a successful compile, an excutable file
+
+
   `RyMoPP`
+
+
 will be generated. Just run it with
+
+
   `./RyMoPP`
+
+
 If you are on a server and want to keep the
 programme running after you log off, try this
+
+
   `nohup ./RyMoPP`
