@@ -128,18 +128,18 @@ in solids.
 
 \subsection{Atomic Wave Functions}
 
-First of all, we need the unperturbed wave functions of a isolated
+First of all, we need the unperturbed wave functions of an isolated
 atom to be the basis functions. Consider the Schr\"odinger equation
 for a Rydberg atom: 
 
 \begin{equation}
 \left[\frac{{\bf p}^{2}}{2m_{e}}+V_{mod}(r)\right]\Ket{\Psi}=E\Ket{\Psi},
 \end{equation}
-where $V_{mod}(r)$ is a effective potential and we split the wave
+where $V_{mod}(r)$ is an effective potential and we split the wave
 function into radial and angular part
 \begin{equation}
 \Psi(r,\theta,\phi)=R({\bf r})\tilde{Y}(\theta,\phi).
-\label{equ:wavefun}
+\label{equ:wavefunc}
 \end{equation}
 In the internal wiki of Pi5, there is a detailed explanation about
 how to get the radial part of the wave function, so we will skip this
@@ -185,7 +185,7 @@ is the famous Fermi-Pseudopotential:
 V_{n,e}({\bf r,R})=2\pi A_{s}[k(R)]\delta({\bf r}-{\bf R})+6\pi A_{p}^{3}[k(R)\overleftarrow{]\nabla}\delta({\bf r}-{\bf R})\overrightarrow{\nabla}
 \end{equation}
 where $A_{s}(k)=-\tan[\delta_{0}(k)]/k$ and $A_{p}^{3}(k)=-\tan[\delta_{1}(k)]/k^{3}$
-denote the energy-dependent triplet s- and p-wave scattering lengths.
+denote the energy-dependent s- and p-wave scattering lengths.
 It is worth pointing out that $\delta_{l=0,1}(k)$ are the energy
 dependent phase shifts and $\frac{k(R)^{2}}{2}=E_{kin}=-\frac{1}{2}n^{*2}+\frac{1}{R}$
 where $n^{*}$ is the effective principal quantum number.
@@ -215,7 +215,7 @@ H_{ij}=\braket{\Psi_i|H_0+V_{n,e}|\Psi_j}=H_{0_{ij}}+V_{ij},
 \end{equation}
 where $H_0 =\frac{{\bf P}^{2}}{M}+H_{el}$. $H_0$ is a diagonal matrix whose diagonal entries are the eigen energies of the original atomic states. In the following subsections, we are going to discuss how to calculate $V_{ij}$.
 \subsection{S-wave Scattering}
-To include the singlet and triplet states in our calculations \cite{}, we use a slightly different Hamiltonian than the one we showed above
+To include the singlet and triplet states in our calculations \cite{Anderson2014}, we use a slightly different Hamiltonian than the one we showed above
 \begin{equation}
 \hat H({\bf r, Z})=\hat H_0+\sum_{i=S,T}2\pi A^i_S({\bf k})\delta^3({\bf r}-Z\hat z)\hat I_i+\sum_{i=S,T}6\pi A_P^i({\bf k})\delta^3({\bf r}-Z\hat z)\overleftarrow{\nabla}\cdot\overrightarrow\nabla\hat I_i+A\hat S_2\cdot \hat I_2,
 \end{equation}
@@ -240,7 +240,7 @@ Y\otimes G&=(\ket{\uparrow},\ket{\downarrow})\otimes \ket{\uparrow}\\
 \end{equation}
 Notice that the 3D $\delta^3({\bf r})$ has the following form in integrations:
 \begin{equation}
-\int \mathrm d^3 r \delta(\vec r -\vec R)=\iiint\delta(r-R)\delta(\theta-\theta_0)\delta(\varphi-\varphi_0)\frac{1}{r^2\sin(\theta)}.
+\int \mathrm d^3 r \delta(\vec r -\vec R)=\iiint\mathrm d^3 r\delta(r-R)\delta(\theta-\theta_0)\delta(\varphi-\varphi_0)\frac{1}{r^2\sin(\theta)}.
 \end{equation}
 Using the orthogonality between the spin up $\bra{\uparrow}$ and spin down $\ket{\downarrow}$ states of the ground state atom, the calculations go straightforward
 \begin{equation}
@@ -255,7 +255,7 @@ Now let's finish the calculations involving the radial part of the wave function
 \begin{aligned}
 &\int_0^{\infty} 2\pi R^*_i( r)\delta(r - Z)R_j(r)\mathrm dr\\
 &= 2\pi \int_0^{\infty} X^*_i(x)x^{-\frac{3}{2}}\delta(x^2-Z)X_j(x)x^{-\frac{3}{2}}2x\mathrm dx\\
-&= 2\pi X_i^*(\sqrt{Z})X_j(\sqrt{Z})Z^{-\frac{3}{2}}
+&= 2\pi X_i^*(\sqrt{Z})X_j(\sqrt{Z})(\sqrt{Z})^{-\frac{3}{2}}
 \end{aligned}
 \end{equation}
 In the end, we multiply the radial and angular contributions to get the final result. An important and interesting fact about spherical harmonics is that at $\theta=0, \varphi=0$, only those with $m=0$ have non-zero contributions. So when we construct the matrix, we can use this fact and substantially reduce the amount of computational resource. This is how we are going to construct the off-diagonal entries for the S-wave scattering Hamiltonian matrix.
@@ -265,7 +265,7 @@ The calculations for P-wave scattering are a bit tricky, since they involve the 
 \begin{equation}
 \hat{V}_p = 6\pi A_{p}^{3}[k(R)]\overleftarrow{\nabla}\delta({\bf r}-{\bf R})\overrightarrow{\nabla},
 \end{equation} 
-where $overleftarrow{\nabla}$ means that the operator acts on the bra $\bra{}$ from the left and vice versa for $\overrightarrow{\nabla}$. In spherical coordinate system, 
+where $\overleftarrow{\nabla}$ means that the operator acts on the bra $\bra{}$ from the left and vice versa for $\overrightarrow{\nabla}$. In spherical coordinate system, 
 \begin{equation}
 \begin{aligned}
 {\bf \nabla}={\frac{\partial f}{\partial r}}\hat{\mathbf r}
@@ -350,7 +350,7 @@ PWS3=
 \end{equation}
 \section{Results}
 A data file named data702.txt contains a latest run with 702 basis functions, including the P Wave scattering. To be continued... 
-Some other literatures\cite{Anderson2014,Biedenharn1981,Balewski2014,Bendkowsky2009,Kurz2013,Bendkowsky2010}
+Some other literatures\cite{Balewski2014,Bendkowsky2009,Kurz2013,Bendkowsky2010}
 \bibliography{bib}
 \bibliographystyle{unsrt}
 \end{document}

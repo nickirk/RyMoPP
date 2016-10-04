@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.10)  4 OCT 2016 15:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.11.10)  4 OCT 2016 15:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -478,10 +478,6 @@ File: ../Figs/PTriplet.pdf Graphic file (type pdf)
 Package pdftex.def Info: ../Figs/PTriplet.pdf used on input line 203.
 (pdftex.def)             Requested size: 193.50076pt x 121.31468pt.
  [4 <../Figs/PSinglet.pdf> <../Figs/PTriplet.pdf>]
-
-LaTeX Warning: Reference `equ:wavefunc' on page 5 undefined on input line 276.
-
-
 Overfull \hbox (14.99673pt too wide) detected at line 286
 [][] []
  []
@@ -509,17 +505,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 356.
 Package rerunfilecheck Info: File `Manual.out' has not changed.
 (rerunfilecheck)             Checksum: F2FFF4F12A345A7BEB545F47EDE037C0;1036.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 356.
  ) 
 Here is how much of TeX's memory you used:
- 11261 strings out of 493089
- 161175 string characters out of 6134841
+ 11260 strings out of 493089
+ 161162 string characters out of 6134841
  257939 words of memory out of 5000000
- 14565 multiletter control sequences out of 15000+600000
+ 14564 multiletter control sequences out of 15000+600000
  19401 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,16n,40p,469b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -551,7 +543,7 @@ ts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/fonts
 ype1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
 e1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
 /public/cm-super/sfti1000.pfb>
-Output written on Manual.pdf (7 pages, 371654 bytes).
+Output written on Manual.pdf (7 pages, 370667 bytes).
 PDF statistics:
  290 PDF objects out of 1000 (max. 8388607)
  247 compressed objects within 3 object streams
