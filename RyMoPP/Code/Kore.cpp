@@ -367,7 +367,7 @@ double AngularP(double theta, double phi, double x,double RadialP_R, double Radi
   double ASP=0.0;
   double ATP=0.0;
   double xtmp=x;
-  //fitting parameters for the scattering length
+  //fitting parameters for the scattering length TODO: Clever way of entering parameters
   double a=-85.141,b=0.296747,c=-0.00291864,d=1.1992e-05,e=-1.66351e-08,f=470.161;
   double a2=-0.00954914,b2=0.266178,c2=-1.69726,d2=9.05673,e2=-27.0818,f2=-1.20294e-05;
   while (k<0.){
