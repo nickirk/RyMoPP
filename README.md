@@ -1,7 +1,12 @@
 #Rydberg Molecule Potential Programme (RyMoPP)
 
+
 Ke Liao 2016
+
+
 ##Important Note
+
+
 Anyone with a developer permission to this 
 repository is welcome to create your own 
 branch or make a fork of this project. 
@@ -19,11 +24,15 @@ the code in your branch.
 
 
 **Important**
+
+
 Learn how to use git first before you
 push any changes to your repository on GitLab
 
 
 ##Compile
+
+
 gcc 4.8 is required. Other versions (either
 old or newer ones) may not work properly.
 
@@ -48,6 +57,8 @@ to assign then running permission to it.
 
 
 ##Run
+
+
 After a successful compile, an excutable file
   `RyMoPP`
 will be generated. Just run it with
