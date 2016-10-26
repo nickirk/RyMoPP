@@ -348,6 +348,13 @@ PWS3=
     0,              & \text{otherwise}
 \end{cases}
 \end{equation}
+
+Regarding the radial part, using the transform $x=\sqrt{r}; X(x)=x^{3/2}R(r)$, we have
+$$\frac{dR}{dr}=\frac{d (X(x)x^{-3/2})}{dx}\frac{dx}{dr},$$  
+where 
+ $$\frac{dx}{dr}=\frac12 r^{-1/2}=\frac{1}{2}x^{-1}.$$
+In the end we get 
+$$\frac{dR}{dr}=-\frac 34 x^{-7/2}X(x)+\frac 12 x^{-5/2}\frac{dX(x)}{dx}.$$
 \section{Results}
 A data file named data702.txt contains a latest run with 702 basis functions, including the P Wave scattering. To be continued... 
 Some other literatures\cite{Balewski2014,Bendkowsky2009,Kurz2013,Bendkowsky2010}
