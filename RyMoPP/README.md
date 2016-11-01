@@ -2,7 +2,10 @@
 
 
 Ke Liao 2016
-
+Any use of this code for publication should
+cite this project or the Manual.pdf.
+Any commercial use should follow the
+terms of GPL3 license.
 
 ##Important Note
 
