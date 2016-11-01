@@ -9,23 +9,6 @@ cite this project or the Manual.pdf.
 Any commercial use should follow the
 terms of GPL3 license.
 
-##Important Note
-
-
-Anyone with a developer permission to this 
-repository is welcome to create your own 
-branch or make a fork of this project. 
-
-
-However, the master branch is under protection
-just in case any developer may unintentionally
-push bad files or delete
-some important files. 
-
-
-After you create your own branch or fork 
-your own project, you are free to modify
-the code in your branch. 
 
 
 **Important**
