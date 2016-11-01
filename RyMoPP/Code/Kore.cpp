@@ -534,13 +534,13 @@ MatrixXd OffDiag(vector<vector<int>>& WaveFuncsBasis, MatrixXd* WaveFuncs,
       int m1=WaveFuncsBasis[j][2];
       int dj1=WaveFuncsBasis[j][3];
       I=Integrate(WaveFuncs, x, i, j, N, n, l, m, dj, n1, l1, m1, dj1, FPWave);
-      cout << "In Offdiag" << endl;
-      cout << "ID= " << id << endl;
-      cout << "x= " << x << endl;
-      cout << "(i,j)=" << "("<< i << "," << j <<")" << endl;
-      cout << "(n,l,m,dj)=" << n << "," << l <<"," << m << ","<<dj << endl;
-      cout << "(n1,l1,m1,dj1)=" <<n1<< ","<< l1 <<","<< m1 <<","<< dj1 << endl;
-      cout << "I =             " << I << "\n" << endl;
+     // cout << "In Offdiag" << endl;
+     // cout << "ID= " << id << endl;
+     // cout << "x= " << x << endl;
+     // cout << "(i,j)=" << "("<< i << "," << j <<")" << endl;
+     // cout << "(n,l,m,dj)=" << n << "," << l <<"," << m << ","<<dj << endl;
+     // cout << "(n1,l1,m1,dj1)=" <<n1<< ","<< l1 <<","<< m1 <<","<< dj1 << endl;
+     // cout << "I =             " << I << "\n" << endl;
       mat(i,j)=I;
       mat(j,i)=I;
     }
